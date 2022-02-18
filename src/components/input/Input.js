@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 
 // utils
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 // Context
 import { TaskContext } from '../../context/task-context/Context.js'
@@ -19,14 +19,24 @@ export const Input = () => {
 		setTaskTitle(value)
 	}
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		if (!taskTitle) return 
+	const createTask = () => {
+		if (!taskTitle) return
+
 		const task = {
 			id: uuidv4(),
 			title: taskTitle,
+			status: 'new',
 		}
-		setTasks([...tasks, task])
+
+		return task
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+
+		const task = createTask()
+
+		if (task) setTasks([...tasks, task])
 		setTaskTitle(INITIAL_TASK_TITLE)
 	}
 
@@ -34,7 +44,7 @@ export const Input = () => {
 		<SCInputWrapper>
 			<SCForm onSubmit={handleSubmit}>
 				<SCInput
-					placeholder='Write your text here...'
+					placeholder='What do you need to do?'
 					type='text'
 					value={taskTitle}
 					onChange={handleChange}

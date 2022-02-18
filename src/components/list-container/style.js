@@ -7,4 +7,6 @@ export const SCList = styled.ul`
 	margin: 10px;
 	padding: 0;
 	list-style: none;
+	border-radius: 10px;
+	border: none;
 `
