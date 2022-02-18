@@ -3,8 +3,8 @@ import React from 'react'
 // styles
 import { SCItem } from './style.js'
 
-export const ItemList = () => {
+export const ItemList = ({children}) => {
   return (
-    <SCItem>ListItem</SCItem>
+    <SCItem>{children}</SCItem>
   )
 }

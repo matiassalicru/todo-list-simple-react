@@ -1,4 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+
+// utils
+import { v4 as uuidv4 } from 'uuid';
+
+// Context
+import { TaskContext } from '../../context/task-context/Context.js'
 
 // styles
 import { SCInput, SCInputWrapper, SCForm } from './style.js'
@@ -7,6 +13,7 @@ const INITIAL_TASK_TITLE = ''
 
 export const Input = () => {
 	const [taskTitle, setTaskTitle] = useState(INITIAL_TASK_TITLE)
+	const { tasks, setTasks } = useContext(TaskContext)
 
 	const handleChange = ({ target: { value } }) => {
 		setTaskTitle(value)
@@ -14,7 +21,12 @@ export const Input = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		console.log('submitiaste biennn', taskTitle)
+		if (!taskTitle) return 
+		const task = {
+			id: uuidv4(),
+			title: taskTitle,
+		}
+		setTasks([...tasks, task])
 		setTaskTitle(INITIAL_TASK_TITLE)
 	}
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 
 // styles
 import { SCList } from './style.js'
@@ -6,14 +6,17 @@ import { SCList } from './style.js'
 // Components
 import { ItemList } from '../item-list/ItemList.js'
 
+// Context
+import { TaskContext } from '../../context/task-context/Context'
+
 export const List = () => {
-	const [items, setItems] = useState([1, 2, 3, 4, 5])
+	const { tasks } = useContext(TaskContext)
 
 	return (
 		<SCList>
-			{items.map((item) => (
-				<ItemList key={item}>{item}</ItemList>
-			))}
+			{tasks.map((item) => {
+				return <ItemList key={item.id}>{item.title}</ItemList>
+			})}
 		</SCList>
 	)
 }
