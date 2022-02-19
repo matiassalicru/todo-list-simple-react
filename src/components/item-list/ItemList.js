@@ -10,12 +10,13 @@ import { TaskContext } from '../../context/task-context/Context'
 // styles
 import { SCTask } from './style.js'
 
-export const ItemList = ({ title, status }) => {
+export const ItemList = ({ taskId, title, status }) => {
 	const { tasks } = useContext(TaskContext)
+	const isOneTask = tasks?.length === 1
 
 	return (
-		<SCTask isOneTask={tasks?.length === 1}>
-			<Status status={status} />
+		<SCTask isOneTask={isOneTask}>
+			<Status status={status} taskId={taskId} isOneTask={isOneTask}/>
 			<Title title={title} />
 		</SCTask>
 	)

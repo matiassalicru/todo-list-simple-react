@@ -16,7 +16,12 @@ export const List = () => {
 		<SCList>
 			{tasks.map((item) => {
 				return (
-					<ItemList key={item.id} title={item.title} status={item.status} />
+					<ItemList
+						key={item.id}
+						taskId={item.id}
+						title={item.title}
+						status={item.status}
+					/>
 				)
 			})}
 		</SCList>

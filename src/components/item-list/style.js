@@ -5,21 +5,21 @@ import { Colors } from '../../utils/Colors'
 
 export const SCTask = styled.div`
 	display: flex;
-	border: 1px solid ${Colors.mainYellow};
-	padding: 20px;
-	height: 30px;
+	align-items: center;
+	border: 1px solid ${Colors.grey};
+	height: 65px;
 
 	&:first-child {
-		${({ isOneTask }) => !isOneTask && 'border-radius: 10px 10px 0 0;'}
+		${({ isOneTask }) => !isOneTask && 'border-radius: 0 5px 0 0;'}
 	}
 
 	&:last-child {
-		${({ isOneTask }) => !isOneTask && 'border-radius: 0 0 10px 10px;'}
+		${({ isOneTask }) => !isOneTask && 'border-radius: 0 0 5px 0;'}
 	}
 
 	${({ isOneTask }) =>
 		isOneTask &&
 		css`
-			border-radius: 10px;
+			border-radius: 0 5px 5px 0;
 		`}
 `
