@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Colors } from '../../../../utils/Colors'
 
 export const SCTitle = styled.p`
-	color: ${Colors.white};
+	color: ${Colors.black};
 	font-weight: 500;
 	font-size: 18px;
   margin: 0;
