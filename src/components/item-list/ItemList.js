@@ -17,7 +17,7 @@ export const ItemList = ({ taskId, title, status }) => {
 	return (
 		<SCTask isOneTask={isOneTask}>
 			<Status status={status} taskId={taskId} isOneTask={isOneTask}/>
-			<Title title={title} />
+			<Title title={title} taskId={taskId} />
 		</SCTask>
 	)
 }
