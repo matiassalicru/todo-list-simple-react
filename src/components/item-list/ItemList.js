@@ -8,16 +8,17 @@ import { Title } from './components/title'
 import { TaskContext } from '../../context/task-context/Context'
 
 // styles
-import { SCTask } from './style.js'
+import { SCTask, SCButton } from './style.js'
 
 export const ItemList = ({ taskId, title, status }) => {
-	const { tasks } = useContext(TaskContext)
+	const { tasks, deleteTask } = useContext(TaskContext)
 	const isOneTask = tasks?.length === 1
 
 	return (
 		<SCTask isOneTask={isOneTask}>
 			<Status status={status} taskId={taskId} isOneTask={isOneTask}/>
-			<Title title={title} />
+			<Title title={title} taskId={taskId} />
+			<SCButton onClick={() => deleteTask(taskId)}>🗑</SCButton>
 		</SCTask>
 	)
 }
